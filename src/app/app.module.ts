@@ -4,6 +4,7 @@ import { AppComponent } from './app.component';
 // ngx - modals
 import { ModalTemplateModule } from './components/modal-template/modal-template.module';
 import { ModalComponentModule } from './components/modal-component/modal-component.module';
+import { ModalNestedModule } from './components/modal-nested/modal-nested.module';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,7 @@ import { ModalComponentModule } from './components/modal-component/modal-compone
     BrowserModule,
     ModalTemplateModule,
     ModalComponentModule,
+    ModalNestedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -15,9 +15,9 @@ export class ModalContentComponent implements OnInit {
   // local variables, these variables can be accessed by this.bsModalRef.content in parent
   closeBtnName: string;
   textFromParent: string;
- 
+
   constructor(public bsModalRef: BsModalRef) {}
- 
+
   ngOnInit() {
     this.list.push('Aditional item');
   }
