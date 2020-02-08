@@ -1,5 +1,6 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalScrollingComponentComponent } from './components/modal-scrolling-component/modal-scrolling-component.component';
 
 @Component({
   selector: 'app-modal-scrolling',
@@ -9,15 +10,11 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class ModalScrollingComponent {
 
   modalRef: BsModalRef;
-  items: any[];
 
-  constructor(private modalService: BsModalService) {
-    this.items = Array(15).fill(0);
-    console.log(this.items);
-  }
+  constructor(private modalService: BsModalService) {}
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal() {
+    this.modalRef = this.modalService.show(ModalScrollingComponentComponent);
   }
 
 }
