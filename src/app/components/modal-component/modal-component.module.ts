@@ -1,18 +1,22 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { ModalComponentComponent } from './modal-component.component';
+import { ModalComponentComponent, ModalContentComponent } from './modal-component.component';
 
 @NgModule({
   declarations: [
     ModalComponentComponent,
+    ModalContentComponent,
   ],
   imports: [
     BrowserModule,
     ModalModule.forRoot(),
   ],
   exports: [
-    ModalComponentComponent
+    ModalComponentComponent,
+  ],
+  entryComponents: [
+    ModalContentComponent
   ]
 })
 export class ModalComponentModule {}
