@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 
 @Component({
@@ -8,11 +8,25 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class ModalTemplateComponent {
 
+  @ViewChild('modalTemplate', {static: false}) template: TemplateRef<any>;
+
   modalRef: BsModalRef;
+
   constructor(private modalService: BsModalService) {}
  
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  openModal() {
+    this.modalRef = this.modalService.show(this.template);
   }
 
+  closeModal() {
+    this.modalRef.hide();
+    this.reOpenMofal();
+  }
+
+  reOpenMofal() {
+    setTimeout(() => {
+      this.modalRef = this.modalService.show(this.template);
+    }, 3000);
+  }
+  
 }
