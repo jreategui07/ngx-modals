@@ -1,4 +1,4 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { ModalSimpleTemplateComponent } from './components/modal-simple-template/modal-simple-template.component';
 
