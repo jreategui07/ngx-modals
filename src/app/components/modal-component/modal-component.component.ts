@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { ModalContentComponent } from './components/modal-content/modal-content.component';
+import { ModalMessageComponent } from './components/modal-message/modal-message.component';
 
 @Component({
   selector: 'app-modal-component',
@@ -27,6 +28,10 @@ export class ModalComponentComponent implements OnInit {
     this.bsModalRef = this.modalService.show(ModalContentComponent, {initialState});
     this.bsModalRef.content.closeBtnName = 'Close';
     this.bsModalRef.content.textFromParent = 'This text was send by parent';
+  }
+
+  openModalMessage() {
+    this.bsModalRef = this.modalService.show(ModalMessageComponent);
   }
 
 }
