@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 // ngx - modals
 import { ModalTemplateModule } from './components/modal-template/modal-template.module';
+import { ModalComponentModule } from './components/modal-component/modal-component.module';
 
 @NgModule({
   declarations: [
@@ -11,6 +12,7 @@ import { ModalTemplateModule } from './components/modal-template/modal-template.
   imports: [
     BrowserModule,
     ModalTemplateModule,
+    ModalComponentModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
