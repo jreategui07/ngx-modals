@@ -13,7 +13,7 @@ export class ModalTemplateComponent {
   modalRef: BsModalRef;
 
   constructor(private modalService: BsModalService) {}
- 
+
   openModal() {
     this.modalRef = this.modalService.show(this.template);
   }
@@ -28,5 +28,5 @@ export class ModalTemplateComponent {
       this.modalRef = this.modalService.show(this.template);
     }, 3000);
   }
-  
+
 }

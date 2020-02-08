@@ -1,5 +1,6 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalSimpleTemplateComponent } from './components/modal-simple-template/modal-simple-template.component';
 
 @Component({
   selector: 'app-modal-nested',
@@ -8,25 +9,12 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 })
 export class ModalNestedComponent {
 
-  modalRef: BsModalRef | null;
-  modalRef2: BsModalRef;
+  modalRef: BsModalRef;
 
   constructor(private modalService: BsModalService) {}
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, { class: 'modal-sm' });
-  }
-
-  openModal2(template: TemplateRef<any>) {
-    this.modalRef2 = this.modalService.show(template, { class: 'second' });
-  }
-
-  closeFirstModal() {
-    if (!this.modalRef) {
-      return;
-    }
-    this.modalRef.hide();
-    this.modalRef = null;
+  openModal() {
+    this.modalRef = this.modalService.show(ModalSimpleTemplateComponent, { class: 'modal-sm' });
   }
 
 }
