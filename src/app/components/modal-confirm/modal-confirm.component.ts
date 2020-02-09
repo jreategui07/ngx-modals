@@ -1,5 +1,6 @@
-import { Component, TemplateRef } from '@angular/core';
+import { Component } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalConfirmComponentComponent } from './components/modal-confirm-component/modal-confirm-component.component';
 
 @Component({
   selector: 'app-modal-confirm',
@@ -9,21 +10,18 @@ import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 export class ModalConfirmComponent {
 
   modalRef: BsModalRef;
-  message: string;
+  message: boolean;
   constructor(private modalService: BsModalService) {}
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template, {class: 'modal-sm'});
-  }
-
-  confirm(): void {
-    this.message = 'Confirmed!';
-    this.modalRef.hide();
-  }
-
-  decline(): void {
-    this.message = 'Declined!';
-    this.modalRef.hide();
+  openModal() {
+    this.modalRef = this.modalService.show(ModalConfirmComponentComponent, {
+      class: 'modal-sm',
+      keyboard: false,
+      ignoreBackdropClick: true,
+    });
+    this.modalRef.content.onConfirmModal.subscribe((response: boolean) => {
+      this.message = response;
+    });
   }
 
 }

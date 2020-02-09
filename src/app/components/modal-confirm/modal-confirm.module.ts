@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { ModalConfirmComponent } from './modal-confirm.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalConfirmComponentModule } from './components/modal-confirm-component/modal-confirm-component.module';
 
 @NgModule({
   declarations: [
@@ -9,7 +10,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
   ],
   imports: [
     BrowserModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    ModalConfirmComponentModule,
   ],
   exports: [
     ModalConfirmComponent,
