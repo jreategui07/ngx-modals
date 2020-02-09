@@ -1,6 +1,7 @@
-import { Component, ChangeDetectorRef, TemplateRef } from '@angular/core';
+import { Component, ChangeDetectorRef } from '@angular/core';
 import { Subscription, combineLatest } from 'rxjs';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
+import { ModalEventComponentComponent } from './components/modal-event-component/modal-event-component.component';
 
 @Component({
   selector: 'app-modal-events',
@@ -13,18 +14,13 @@ export class ModalEventsComponent {
   subscriptions: Subscription[] = [];
   messages: string[] = [];
 
-  constructor(private modalService: BsModalService, private changeDetection: ChangeDetectorRef) {
-  }
+  constructor(
+    private modalService: BsModalService,
+    private changeDetection: ChangeDetectorRef,
+  ) {}
 
-  openModal(template: TemplateRef<any>) {
+  openModal() {
     this.messages = [];
-
-    const combineEvents = combineLatest(
-      this.modalService.onShow,
-      this.modalService.onShown,
-      this.modalService.onHide,
-      this.modalService.onHidden
-    ).subscribe(() => this.changeDetection.markForCheck());
 
     this.subscriptions.push(
       this.modalService.onShow.subscribe((reason: string) => {
@@ -53,8 +49,15 @@ export class ModalEventsComponent {
       })
     );
 
+    const combineEvents = combineLatest(
+      this.modalService.onShow,
+      this.modalService.onShown,
+      this.modalService.onHide,
+      this.modalService.onHidden
+    ).subscribe(() => this.changeDetection.markForCheck());
     this.subscriptions.push(combineEvents);
-    this.modalRef = this.modalService.show(template);
+
+    this.modalRef = this.modalService.show(ModalEventComponentComponent);
   }
 
   unsubscribe() {
