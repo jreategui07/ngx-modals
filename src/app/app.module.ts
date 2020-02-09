@@ -7,6 +7,7 @@ import { ModalComponentModule } from './components/modal-component/modal-compone
 import { ModalNestedModule } from './components/modal-nested/modal-nested.module';
 import { ModalScrollingModule } from './components/modal-scrolling/modal-scrolling.module';
 import { ModalEventsModule } from './components/modal-events/modal-events.module';
+import { ModalConfirmModule } from './components/modal-confirm/modal-confirm.module';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { ModalEventsModule } from './components/modal-events/modal-events.module
     ModalNestedModule,
     ModalScrollingModule,
     ModalEventsModule,
+    ModalConfirmModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
